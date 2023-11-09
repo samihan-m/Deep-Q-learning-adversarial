@@ -5,8 +5,8 @@ from keras.models import *
 from matplotlib import pyplot as plt
 from sklearn.utils import shuffle
 from itertools import combinations, product
-from tensorflow.examples.tutorials.mnist import input_data
-from keras.datasets import cifar10
+# from tensorflow.examples.tutorials.mnist import input_data
+from keras.datasets import cifar10, mnist
 import keras
 from helper_functions import *
 
@@ -15,14 +15,17 @@ dataset = 'MNIST'
 
 if dataset == 'MNIST':
     input_model = load_model('./mnist_classification_model')
-    mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
-    mnist_images = mnist.train.images
-    mnist_train_images = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
-    X_train = mnist_train_images
-    y_train = mnist.train.labels
-    mnist_images = mnist.test.images
-    X_test = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
-    y_test = mnist.test.labels
+    # mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+    # mnist_images = mnist.train.images
+    # mnist_train_images = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
+    # X_train = mnist_train_images
+    # y_train = mnist.train.labels
+    # mnist_images = mnist.test.images
+    # X_test = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
+    # y_test = mnist.test.labels
+
+    (X_train, y_train), (X_test, y_test) = mnist.load_data()
+
     input_shape = [28,28,1]
     
     num_classes = 10
@@ -110,7 +113,7 @@ for games in range(5000):
                
         attack_region = np.zeros((sample_img.shape))       
         attack_cord = blocks[action]
-        attack_region[0,attack_cord[0]:attack_cord[0]+block_size, attack_cord[1]:attack_cord[1]+block_size,:] = 1
+        attack_region[0,attack_cord[0]:attack_cord[0]+block_size, attack_cord[1]:attack_cord[1]+block_size] = 1
                
         sample_img_noise = sample_img + lamda * attack_region
         sample_img_noise_prob = input_model.predict(sample_img_noise)

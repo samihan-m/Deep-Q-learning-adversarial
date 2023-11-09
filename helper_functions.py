@@ -2,12 +2,7 @@
 import numpy as np
 from keras.layers import *
 from keras.models import *
-from matplotlib import pyplot as plt
 from sklearn.utils import shuffle
-from itertools import combinations, product
-from tensorflow.examples.tutorials.mnist import input_data
-from keras.datasets import cifar10
-import keras
 
 
 def get_cnn_model(input_shape = None):

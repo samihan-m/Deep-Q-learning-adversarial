@@ -4,8 +4,8 @@ from keras.layers import *
 from keras.models import *
 from matplotlib import pyplot as plt
 from itertools import combinations, product
-from tensorflow.examples.tutorials.mnist import input_data
-from keras.datasets import cifar10
+# from tensorflow.examples.tutorials.mnist import input_data
+from keras.datasets import cifar10, mnist
 import keras
 from PIL import Image 
 import os
@@ -23,14 +23,17 @@ if dataset == 'MNIST':
         os.mkdir(save_dir)
         
     
-    mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
-    mnist_images = mnist.train.images
-    mnist_train_images = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
-    X_train = mnist_train_images
-    y_train = mnist.train.labels
-    mnist_images = mnist.test.images
-    X_test = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
-    y_test = mnist.test.labels
+    # mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+    # mnist_images = mnist.train.images
+    # mnist_train_images = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
+    # X_train = mnist_train_images
+    # y_train = mnist.train.labels
+    # mnist_images = mnist.test.images
+    # X_test = np.reshape(mnist_images,[mnist_images.shape[0],28,28,1])
+    # y_test = mnist.test.labels
+
+    (X_train, y_train), (X_test, y_test) = mnist.load_data()
+
     input_shape = [28,28,1]
     
     num_classes = 10
