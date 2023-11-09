@@ -2,8 +2,7 @@
 import numpy as np
 from keras.layers import *
 from keras.models import *
-from matplotlib import pyplot as plt
-from itertools import combinations, product
+from itertools import product
 # from tensorflow.examples.tutorials.mnist import input_data
 from keras.datasets import cifar10, mnist
 import keras
@@ -113,5 +112,3 @@ for games in range(5000,len(X_test)):
             break
         
         sample_img = np.array(sample_img_noise)
-   
-     
