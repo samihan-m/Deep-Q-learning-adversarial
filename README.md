@@ -11,3 +11,11 @@ Run test_DQN_adversarial_attack.py to generate and save the adversarial images.
 The keras classification model files for MNIST and CIFAR are generated with keras version 2.1.4
 
 Run 'pip install keras==2.1.4' if the loading of the models fails.
+
+## My README:
+
+### Installation
+
+`pip install -r requirements.txt`
+
+Note: "Tested" on Python 3.11 (and probably 3.10, IIRC)
