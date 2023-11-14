@@ -16,6 +16,8 @@ Run 'pip install keras==2.1.4' if the loading of the models fails.
 
 ### Installation
 
+Set up a `conda` environment or a `venv` if you want. Then,
+
 `pip install -r requirements.txt`
 
 Note: "Tested" on Python 3.11 (and probably 3.10, IIRC)
